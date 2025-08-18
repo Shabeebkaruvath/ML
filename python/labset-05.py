@@ -4,7 +4,7 @@ try:
     result = num / den
     print(f"Result: {num} / {den} = {result}")
 except ZeroDivisionError:
-    print("Division by zero is not allowed")
+    print("not allowed")
  
  
   
