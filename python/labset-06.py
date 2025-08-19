@@ -3,6 +3,8 @@ import numpy
 arr1 = numpy.array([1, 2, 3, 4, 5])
 arr2 = numpy.array([10, 20, 30, 40, 50])
 
+
+
 print("Array 1:", arr1)
 print("Array 2:", arr2)
 

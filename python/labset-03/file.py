@@ -4,5 +4,5 @@ file.close()
 
 
 file = open("print.txt","r")
-print(file.read())
+print(file.readlines())
 file.close()

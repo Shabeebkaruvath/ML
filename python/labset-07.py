@@ -1,6 +1,8 @@
 import numpy as np
 
-A = np.array([[1, 2], [3, 4]])
+size=int(input("enter the size of the metrix:"))
+
+A =[]
 B = np.array([[2, 0], [1, 2]])
 
 print("Matrix A:\n", A)
