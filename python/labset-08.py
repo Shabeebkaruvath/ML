@@ -1,17 +1,40 @@
 import pandas as pd
 
-# Load CSV file
-presidents = pd.read_csv("presidents.csv")
-print(type(presidents))
+# Load CSV file with encoding fix
+try:
+    df = pd.read_csv('dataset.csv')  # Try UTF-8 first
+except UnicodeDecodeError:
+    df = pd.read_csv('dataset.csv', encoding='latin-1')  # Try latin-1
+    
 
-print("Head of dataset:\n", presidents.head(3))
+# 2. Display head and tail
+print("\n🔝 First 5 rows:")
+print(df.head())
 
-print("tail of dataset:\n", presidents.tail(3))
+print("\n🔚 Last 5 rows:")
+print(df.tail())
 
+# 3. Check missing values
+print("\n🔍 Missing values:")
+missing = df.isnull().sum()
+for col, count in missing.items():
+    print(f"{col}: {count}")
 
+# 4. Handle missing values if any
+if missing.sum() > 0:
+    # Fill numbers with median, text with 'Unknown'
+    for col in df.columns:
+        if df[col].isnull().sum() > 0:
+            if df[col].dtype in ['int64', 'float64']:
+                df[col].fillna(df[col].median(), inplace=True)
+            else:
+                df[col].fillna('Unknown', inplace=True)
+    print("✅ Missing values fixed!")
 
-print("\n\n Average of a president served in days:",presidents['Days_Served'].mean())
-
- 
-print("\n\n",presidents['Party'].value_counts())
+# 5. Goals statistics only
+print("\n📈 Goals Statistics:")
+print(f"Mean: {df['Goals'].mean():.2f}")
+print(f"Median: {df['Goals'].median():.2f}")
+mode = df['Goals'].mode()
+print(f"Mode: {mode[0] if len(mode) > 0 else 'None'}")
 
