@@ -1,4 +1,4 @@
-#by using non-recursion method
+ 
 num=int(input("enter the number"))
 fact=1
 while(num!=0):
@@ -9,8 +9,7 @@ print("factorial :"+str(fact))
 
 
 
-
-#by using recursion method
+ 
 def fact(num):
     if num == 0 or num == 1:
         return 1

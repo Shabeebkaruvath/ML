@@ -1,31 +1,33 @@
 import numpy as np
 
-size=int(input("enter the size of the metrix:"))
+ 
+size = 2
+print(f"Enter elements for a {size}x{size} matrix A:")
 
-A =[]
+ 
+A = []
+for i in range(size):
+    row = list(map(float, input(f"Row {i+1}: ").split()))
+    A.append(row)
+
+A = np.array(A)
+
+ 
 B = np.array([[2, 0], [1, 2]])
 
-print("Matrix A:\n", A)
-print("Matrix B:\n", B)
+ 
+print("\nMatrix A:\n", A)
+print("\nMatrix B:\n", B)
+ 
+print("\nA + B:\n", A + B)
 
-# Matrix addition
-D = A + B
-print("\nA + B:\n", D)  
+ 
+print("\nA x B:\n", np.dot(A, B))
 
-# Matrix multiplication
-C = np.dot(A, B)  
-print("\nA x B:\n", C)
-
-# Transpose
+ 
 print("\nTranspose of A:\n", A.T)
-
-# Determinant
+ 
 det_A = np.linalg.det(A)
 print("\nDeterminant of A:", det_A)
 
-
-if det_A != 0:
-    inv_A = np.linalg.inv(A)
-    print("\nInverse of A:\n", inv_A)
-else:
-    print("\nMatrix A is singular, no inverse exists.")
+ 
