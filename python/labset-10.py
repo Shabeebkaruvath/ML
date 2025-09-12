@@ -8,7 +8,7 @@ except:
 
 plt.figure(figsize=(10, 6))
 
-colors = ['red', 'blue', 'green', 'orange', 'purple', 'brown', 'pink', 'gray']
+colors = ['red', 'blue', 'green', 'orange', 'purple', 'brown']
 confederations = df['Confederation'].unique()
 
 for i, conf in enumerate(confederations):
@@ -16,7 +16,7 @@ for i, conf in enumerate(confederations):
     plt.scatter(data['Caps'], data['Goals'], 
                c=colors[i % len(colors)], label=conf, alpha=0.7, s=50)
 
-plt.title('Goals vs International Caps by Confederation', fontsize=14)
+plt.title('Goals International by Confederation', fontsize=14)
 plt.ylabel('Goals Scored')
 plt.legend(title='Confederation')
 plt.grid(True, alpha=0.3)
