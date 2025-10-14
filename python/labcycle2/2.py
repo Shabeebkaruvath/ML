@@ -1,6 +1,6 @@
 import pandas as pnd
 
-data = pnd.read_csv('auto.csv')
+data = pnd.read_csv('2auto.csv')
 
  
 for col in data.columns:
