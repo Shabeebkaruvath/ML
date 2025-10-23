@@ -1,16 +1,18 @@
 def word_positions_in_sentences():
-    num_sentences = int(input("Enter the number of sentences: "))
+    num_sentences = int(input("Number of sentences: "))
     sentences = []
     for i in range(num_sentences):
-        sentence = input(f"Enter sentence {i + 1}: ")
+        sentence = input(f"Enter sentence {i+1}: ")
         sentences.append(sentence)
-    
-    target_word = input("Enter the target word: ")
 
-    result = {i: (s.split().index(target_word) if target_word in s.split() else -1)
-              for i, s in enumerate(sentences)}
+    word = input("Enter target word: ")
 
-    print("Word positions in sentences:", result)
+    result = {}
+    for i, sentence in enumerate(sentences):
+        words = sentence.split()
+        result[i] = words.index(word) if word in words else -1
 
-# Call the function
-word_positions_in_sentences()
+    return result
+
+positions = word_positions_in_sentences()
+print("Word positions in sentences:", positions)
