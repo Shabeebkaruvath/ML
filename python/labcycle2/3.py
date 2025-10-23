@@ -1,8 +1,8 @@
 import numpy as np
 
 
-A = np.array([[1, 1],      # Coefficients of c and a in equation 1
-              [1.5, 4]])    # Coefficients of c and a in equation 2
+A = np.array([[1, 1],      
+              [1.5, 4]])     
 
 b = np.array([2200, 5050])
 
