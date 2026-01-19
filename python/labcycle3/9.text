@@ -1,0 +1,141 @@
+ 
+
+---
+
+# 📊 Classification Report – Explanation
+
+This output shows the **performance of two models**:
+
+* **Decision Tree**
+* **Support Vector Machine (SVM)**
+
+The task is **binary classification**:
+
+* `0` → No heart disease
+* `1` → Heart disease
+
+---
+
+## 🔹 Column meanings (VERY IMPORTANT)
+
+### **1. Precision**
+
+> Out of all predictions of a class, how many were correct?
+
+**Formula:**
+
+```
+Precision = TP / (TP + FP)
+```
+
+High precision → **Few false positives**
+
+---
+
+### **2. Recall**
+
+> Out of all actual samples of a class, how many were correctly identified?
+
+**Formula:**
+
+```
+Recall = TP / (TP + FN)
+```
+
+High recall → **Few false negatives**
+
+---
+
+### **3. F1-score**
+
+> Balance between precision and recall
+
+**Formula:**
+
+```
+F1 = 2 × (Precision × Recall) / (Precision + Recall)
+```
+
+Used when both precision and recall are important.
+
+---
+
+### **4. Support**
+
+> Number of actual samples of that class in the test set
+
+---
+
+---
+
+# ✅ Decision Tree Output Explanation
+
+```
+0 → 102 samples
+1 → 103 samples
+Total → 205 samples
+```
+
+### Class 0 (No Disease)
+
+```
+Precision = 0.97 → 97% predictions of class 0 are correct
+Recall    = 1.00 → All actual class 0 cases are detected
+F1-score  = 0.99 → Excellent balance
+```
+
+### Class 1 (Disease)
+
+```
+Precision = 1.00 → Every predicted disease case is correct
+Recall    = 0.97 → Missed only 3% of actual disease cases
+F1-score  = 0.99 → Excellent performance
+```
+
+### Accuracy
+
+```
+Accuracy = 0.99 → 99% of total predictions are correct
+```
+
+### Macro Average
+
+* Simple average of both classes
+* Treats both classes equally
+
+### Weighted Average
+
+* Average based on number of samples
+* Useful when data is imbalanced
+
+✅ **Conclusion (Decision Tree)**
+
+> Decision Tree performs **extremely well** and is highly reliable.
+
+---
+
+# ⚠️ SVM Output Explanation
+
+### Class 0 (No Disease)
+
+```
+Precision = 0.90 → 90% predictions are correct
+Recall    = 0.71 → Missed many class 0 cases
+F1-score  = 0.79 → Moderate performance
+```
+
+### Class 1 (Disease)
+
+```
+Precision = 0.76 → More false positives
+Recall    = 0.92 → Detects most disease cases
+F1-score  = 0.83 → Better recall than precision
+```
+
+### Accuracy
+
+```
+Accuracy = 0.81 → 81% correct predictions
+```
+
+# 
