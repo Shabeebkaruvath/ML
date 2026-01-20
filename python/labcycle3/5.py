@@ -7,9 +7,21 @@ def word_to_coords(word):
     return [ord(word[0].lower()) - 96, ord(word[1].lower()) - 96]
 
  
-training_words = ['is', 'it', 'he', 'as', 'to', 'in', 'qc', 'qx', 'zj', 'zp', 'xk', 'vf']
+training_words = [
+    'is','it','he','as','to','in',
+    'on','at','be','we','or','if','by','do','go','me',
+    'qc','qx','zj','zp','xk','vf',
+    'jj','qz','zx','kp','vm','wx','qy','zt','xq','vk'
+]
+
 X = [word_to_coords(w) for w in training_words]
-y = [1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]  
+
+y = [
+    1,1,1,1,1,1,    
+    1,1,1,1,1,1,1,1,1,1,  
+    0,0,0,0,0,0,    
+    0,0,0,0,0,0,0,0,0,0    
+] 
 
 # 3. Design the SVM
 # We use a 'rbf' (Non-linear) kernel because language patterns are complex

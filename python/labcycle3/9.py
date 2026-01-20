@@ -26,3 +26,4 @@ svm_pred = svm.predict(X_test_s)
 
 print("Decision Tree\n", classification_report(y_test, dt_pred))
 print("SVM\n", classification_report(y_test, svm_pred))
+print("better acuracy is : Decision Tree")

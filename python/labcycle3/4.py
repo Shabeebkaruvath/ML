@@ -16,14 +16,13 @@ kmeans = KMeans(n_clusters=3, random_state=42, n_init='auto')
 clusters = kmeans.fit_predict(X)
 
 # 3. Fix the Labels (Mapping)
-# K-Means labels might not match Iris target labels (e.g., Cluster 0 might be Target 2)
 labels = np.zeros_like(clusters)
 for i in range(3):
-    # Find which true species is most common in this cluster
+    
     mask = (clusters == i)
     labels[mask] = mode(y_true[mask], keepdims=True).mode[0]
 
 # 4. Calculate Accuracy
 accuracy = accuracy_score(y_true, labels)
 
-print(f"K-Means Accuracy for Iris: {accuracy * 100:.2f}%")
+print(f"K-Means Accuracy for Iris: {accuracy * 100:.2f }%")
