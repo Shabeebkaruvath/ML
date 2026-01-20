@@ -2,46 +2,52 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
-# Load the dataset
+# Step 1: Load the data from CSV file
 df = pd.read_csv('9.csv')
-print("Dataset loaded!")
+print("First 5 rows of data:")
 print(df.head())
 
-# Clean data (remove duplicates and missing values)
-df = df.drop_duplicates()
-df = df.dropna()
-print(f"\nTotal samples: {len(df)}")
+# Step 2: Clean the data (remove duplicates and missing values)
+df = df.drop_duplicates()  # Remove duplicate rows
+df = df.dropna()            # Remove rows with missing values
+print(f"\nTotal samples after cleaning: {len(df)}")
 
-# Split into training (80%) and testing (20%)
-X = df.iloc[:, :-1]  # All columns except last
-y = df.iloc[:, -1]   # Last column (species)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Step 3: Prepare data for training
+# X = features (all columns except the last one)
+# y = target (the last column - species)
+X = df.iloc[:, :-1]  
+y = df.iloc[:, -1]   
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+# Step 4: Split data into training (80%) and testing (20%) sets
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, 
+    test_size=0.2,      # 20% for testing
+    random_state=42     # For reproducible results
+)
 
 print(f"Training samples: {len(X_train)}")
 print(f"Testing samples: {len(X_test)}")
-
-# Display samples for each species
-print("\nSamples per species:")
+print("\nNumber of samples for each species:")
 print(y.value_counts())
 
-# Create plots
+# Step 5: Create visualizations
 plt.figure(figsize=(12, 8))
 
-# Histogram of sepal length
+# Chart 1: Sepal Length histogram
 plt.subplot(2, 2, 1)
 plt.hist(df.iloc[:, 0], bins=20, color='skyblue', edgecolor='black')
 plt.xlabel('Sepal Length')
 plt.ylabel('Frequency')
 plt.title('Sepal Length Distribution')
 
-# Histogram of petal length
+# Chart 2: Petal Length histogram
 plt.subplot(2, 2, 2)
 plt.hist(df.iloc[:, 2], bins=20, color='lightcoral', edgecolor='black')
 plt.xlabel('Petal Length')
 plt.ylabel('Frequency')
 plt.title('Petal Length Distribution')
 
-# Bar chart of species
+# Chart 3: Species count bar chart
 plt.subplot(2, 2, 3)
 y.value_counts().plot(kind='bar', color=['red', 'green', 'blue'])
 plt.xlabel('Species')
@@ -49,5 +55,6 @@ plt.ylabel('Count')
 plt.title('Species Distribution')
 plt.xticks(rotation=45)
 
+# Display all charts
 plt.tight_layout()
 plt.show()

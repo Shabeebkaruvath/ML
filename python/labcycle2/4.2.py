@@ -17,7 +17,7 @@ axs[0, 1].bar(data['month_number'] + 0.2, data['facewash'], width=0.4, label='Fa
 axs[0, 1].set_title('Face Cream & Face Wash Sales')
 axs[0, 1].set_xlabel('Month')
 axs[0, 1].set_ylabel('Sales')
-axs[0, 1].legend()
+
 
 axs[1, 0].pie(total_sales, labels=total_sales.index, autopct='%1.1f%%')
 axs[1, 0].set_title('Total Sales Distribution')

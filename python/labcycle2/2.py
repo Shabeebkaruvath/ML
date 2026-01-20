@@ -17,4 +17,4 @@ print(data['company'].value_counts())
 
  
 print("\nAverage MPG (Mileage) by Company:")
-print(data.groupby('company')['mpg'].mean().sort_values(ascending=False))
+print(data.groupby('company')['mpg'].mean().sort_values())
